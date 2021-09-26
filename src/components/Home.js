@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Carousel from 'react-material-ui-carousel'
+
 import HeroImage from './HeroImage';
 
 import { BACKDROP_SIZE, IMAGE_BASE_URL } from '../config';
@@ -11,19 +13,26 @@ import ScrollableTabsButtonAuto from './Nav';
 const Home = () => {
   const { state, error, searchTerm } = useHomeFetch();
 
-  const randomNum = Math.floor(Math.random() * 5 )
-
   if(error) return <div>エラーっす</div>
 
   return (
     <>
       {!searchTerm && state.results[0]? (
-        <HeroImage 
-          image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.results[randomNum]?.backdrop_path}`}
-          title={state.results[randomNum]?.original_title}
-          text={state.results[randomNum]?.overview}
-          num={randomNum + 1}
-        />
+        <Carousel
+          indicators={false}
+          interval={"7000"}
+        >
+          {state.results.map((movie, i) => (
+            <HeroImage 
+              key={i}
+              image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.results[i]?.backdrop_path}`}
+              title={state.results[i]?.original_title}
+              text={state.results[i]?.overview}
+              id={state.results[i]?.id}
+              num={i + 1}
+            />
+          ))}
+        </Carousel>
       ) :null}
       <ScrollableTabsButtonAuto />
     </>

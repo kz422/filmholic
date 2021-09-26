@@ -6,8 +6,11 @@ import { Wrapper, Image } from './Actor.styles';
 const Actor = ({ name, character, imageUrl }) => (
   <Wrapper>
     <Image src={imageUrl} alt='actor-thumb' />
-    <h3>{name}</h3>
-    <p>{character} 役</p>
+    <p className="actor-name">{name}</p>
+    {character ? 
+      <p>{character} 役</p>
+      : null
+    }
   </Wrapper>
 )
 Actor.propTypes = {

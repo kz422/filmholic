@@ -1,0 +1,17 @@
+.container p {
+  text-align: center;
+  position: relative;
+}
+
+.sort {
+  color: var(--white);
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  /* background: rgba(255, 255, 255, .1); */
+  border-radius: 50％;
+}
+
+.MuiFormLabel-root {
+  color: aliceblue;
+}

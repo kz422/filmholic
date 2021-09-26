@@ -5,15 +5,21 @@ import { Wrapper } from './WatchProvider.styles';
 const WatchProvider = ({ movieId, title }) => {
   const [info, setInfo] = useState([]);
 
-  const providers = {
-    nf: {url:`https://www.netflix.com/search?q=${title}`, id: 8},
-    amazon: {url:`https://www.amazon.co.jp/s?k=${title}`, id: 9},
-    hulu: {url:`https://www.hulu.jp/search?q=${title}`, id: 15},
-    dtv: {url:`https://video.dmkt-sp.jp/search/?q=${title}`, id: 85},
-    unext: {url:`https://video.unext.jp/freeword?query=${title}`, id: 84},
-    disney: {url:`https://disneyplus.disney.co.jp/view/#!/search/${title}`, id: 390}
-  }
+  const nf = 8
+  const amazon = 9
+  const hulu = 15
+  const dtv = 85
+  const unext = 84
+  const disney = 390
 
+  const prov = {
+    [nf]: `https://www.netflix.com/search?q=${title}`, 
+    [amazon]:`https://www.amazon.co.jp/s?k=${title}`,
+    [hulu]:`https://www.hulu.jp/search?q=${title}`,
+    [dtv]:`https://video.dmkt-sp.jp/search/?q=${title}`,
+    [unext]:`https://video.unext.jp/freeword?query=${title}`,
+    [disney]:`https://disneyplus.disney.co.jp/view/#!/search/${title}`
+  }
 
   useEffect(() => {
     const getActorList = async() => {
@@ -36,8 +42,7 @@ const WatchProvider = ({ movieId, title }) => {
       <Wrapper>
         {info.map((x, i) => {
           return <div key={i} style={{margin:6}}>
-            <a href={providers.nf.url} target="_blank" rel="noreferrer">
-              {/* <p>{x.provider_id}</p> */}
+            <a href={prov[x.provider_id]} target="_blank" rel="noreferrer">
               <img src={`https://image.tmdb.org/t/p/original/${x.logo_path}`} alt="logo" width="35px" style={{borderRadius:'5px'}} />
             </a>
           </div>

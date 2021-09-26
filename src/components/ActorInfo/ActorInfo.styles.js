@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   background-position: center;
   padding: 90px 10px;
   animation: animationMovieInfo 1s;
+  min-height: 50vh;
 
   @keyframes animationMovieInfo{
     from {
@@ -32,10 +33,48 @@ export const Content = styled.div`
   border: 1px solid rgba( 255, 255, 255, 0.18 );
 
   border-radius: 20px;
+  .thumb {
+    border-radius: 20px;
+    width: 100%;
+    max-width: 480px;
+    transition: all .3s;
+    object-fit: cover;
+    /* border-radius: 20px 20px 0 0; */
+    border-radius: 20px;
+    animation: animatedThumb .5s;
+    box-shadow: 0 2px 8px gray;
+    /* height: 100%; */
+    margin: 0;
+  }
+
+  .img-div {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    /* text-align: center; */
+  }
 
   @media screen and (max-width: 768px){
     display: block;
     max-height: none;
+
+    .img-div {
+      width: 100%;
+      text-align: center;
+      max-width: 300px;
+      margin-top: 30px;
+    }
+  }
+  @media screen and (max-width: 500px){
+    display: block;
+    max-height: none;
+
+    .img-div {
+      width: 100%;
+      text-align: center;
+      max-width: 250px;
+      margin-top: 30px;
+    }
   }
 `;
 
@@ -49,6 +88,14 @@ export const Text = styled.div`
   .rating-directors {
     display: flex;
     justify-content: flex-start;
+
+    p {
+      margin: 0;
+    }
+
+    h3 {
+      margin-bottom: 0;
+    }
   }
 
   .score {
@@ -92,9 +139,11 @@ export const Text = styled.div`
   }
 
   h1 {
+    margin-bottom: 0;
     @media screen and (max-width: 768px){
       font-size: var(--fontBig);
     }
   }
+  
 
 `;

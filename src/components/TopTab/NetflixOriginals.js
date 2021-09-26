@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
 
-import NoImage from '../../images/no_image.jpg'
+import NoImage from '../../images/no_image.png'
 import Button from '../Button';
 
 import Grid from '../Grid';
@@ -51,7 +51,7 @@ function NetflixOriginals() {
         { loading && <Spinner /> }
       </div>
       <div className="clearfix"></div>
-      {totalPages !== page && <Button text='Load More' callback={() => setPage(page + 1)}>{loading ? 'Loading...' : 'Load Mor'}</Button>}
+      {totalPages !== page && <Button text='さらに読み込む' callback={() => setPage(page + 1)}>{loading ? 'Loading...' : 'Load Mor'}</Button>}
     </div>
   );
 }

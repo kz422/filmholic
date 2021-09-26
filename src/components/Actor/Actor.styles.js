@@ -10,9 +10,10 @@ export const Wrapper = styled.div`
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   /* padding: 5px; */
   text-align: center;
-  margin: 6px;
+  /* margin: 6px; */
   transition: all .3s;
-  width: 200px;
+  min-width: 140px;
+  max-width: 140px;
   font-weight: lighter;
   
 
@@ -20,8 +21,9 @@ export const Wrapper = styled.div`
     transform: scale(1.02);
   }
   
-  h3 {
-    margin: 10px 0 0 0;
+  .actor-name {
+    margin: 0;
+    font-weight: 400;
   }
 
   p {
@@ -31,9 +33,14 @@ export const Wrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  display: block;
   width: 100%;
-  height: 250px;
+  max-width: 300px;
+  transition: all .3s;
   object-fit: cover;
+  /* border-radius: 20px 20px 0 0; */
   border-radius: 15px 15px 0 0;
+  animation: animatedThumb .5s;
+  box-shadow: 0 2px 8px gray;
+  /* height: 100%; */
+  margin: 0;
 `;

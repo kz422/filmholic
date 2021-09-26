@@ -10,7 +10,7 @@ export const Similar = ({ movie }) => {
 
   useEffect(() => {
     const getMovieList = async() => {
-      await fetch(`https://api.themoviedb.org/3/movie/${movie.id}/similar?api_key=453487eb1f45dc7adae6655a7b5a63d3&language=en-US&page=1`)
+      await fetch(`https://api.themoviedb.org/3/movie/${movie.id}/similar?api_key=453487eb1f45dc7adae6655a7b5a63d3&language=ja-JP&page=1`)
         .then(res => res.json())
         .then(res => {
           setMovieList([...movieList, ...res.results]);
@@ -21,7 +21,7 @@ export const Similar = ({ movie }) => {
 
   return (
     <Wrapper>
-      <h3>類似作品</h3>
+      <h3>こんな作品も見られています</h3>
       <Content>
         {movieList.map((movie, i) => (
           <div key={i}>

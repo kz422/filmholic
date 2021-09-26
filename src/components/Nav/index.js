@@ -6,11 +6,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
 import { TopTab } from '../TopTab';
-import ActionTab from '../GenresTab/Action';
-import ComedyTab from '../GenresTab/Comedy';
-import RomanceTab from '../GenresTab/Romance';
-import HorrorTab from '../GenresTab/Horror';
-import MysteryTab from '../GenresTab/Mystery';
+import MoviesByGenre from '../GenresTab/MoviesByGenre';
 import TopRatedTab from '../TopTab/TopRatedTab';
 import NowShowingTab from '../TopTab/NowShowing';
 import ComingSoonTab from '../TopTab/ComingSoon';
@@ -72,21 +68,26 @@ export default function ScrollableTabsButtonAuto() {
           <Tabs
             value={value}
             onChange={handleChange}
-            indicatorColor="primary"
+            indicatorColor="secondary"
             textColor="primary"
             variant="scrollable"
             scrollButtons="auto"
             aria-label="scrollable auto tabs example"
           >
-            <Tab label="Top" {...a11yProps(0)} />
-            <Tab label="TopRated" {...a11yProps(1)} />
-            <Tab label="Coming Soon" {...a11yProps(2)} />
-            <Tab label="Now Showing" {...a11yProps(3)} />
-            <Tab label="Action" {...a11yProps(4)} />
-            <Tab label="Comedy" {...a11yProps(5)} />
-            <Tab label="Romance" {...a11yProps(6)} />
-            <Tab label="Horror" {...a11yProps(7)} />
-            <Tab label="Mystery" {...a11yProps(8)} />
+            <Tab label="ホーム" {...a11yProps(0)} />
+            <Tab label="高評価" {...a11yProps(1)} />
+            <Tab label="上映予定" {...a11yProps(2)} />
+            <Tab label="上映中" {...a11yProps(3)} />
+            <Tab label="アクション" {...a11yProps(4)} />
+            <Tab label="コメディー" {...a11yProps(5)} />
+            <Tab label="ロマンス" {...a11yProps(6)} />
+            <Tab label="ホラー" {...a11yProps(7)} />
+            <Tab label="ミステリー" {...a11yProps(8)} />
+            <Tab label="クライムサスペンス" {...a11yProps(9)} />
+            <Tab label="SF" {...a11yProps(10)} />
+            <Tab label="アニメ" {...a11yProps(11)} />
+            <Tab label="戦争" {...a11yProps(12)} />
+            <Tab label="ミュージック" {...a11yProps(13)} />
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
@@ -102,19 +103,34 @@ export default function ScrollableTabsButtonAuto() {
           <NowShowingTab />
         </TabPanel>
         <TabPanel value={value} index={4}>
-          <ActionTab />
+          <MoviesByGenre genreId={28} pageName={'アクション'} />
         </TabPanel>
         <TabPanel value={value} index={5}>
-          <ComedyTab />
+          <MoviesByGenre genreId={35} pageName={'コメディー'} />
         </TabPanel>
         <TabPanel value={value} index={6}>
-          <RomanceTab />
+        < MoviesByGenre genreId={10749} pageName={'ロマンス'} />
         </TabPanel>
         <TabPanel value={value} index={7}>
-          <HorrorTab />
+          <MoviesByGenre genreId={27} pageName={'ホラー'} />
         </TabPanel>
         <TabPanel value={value} index={8}>
-          <MysteryTab />
+          <MoviesByGenre genreId={9648} pageName={'ミステリー'} />
+        </TabPanel>
+        <TabPanel value={value} index={9}>
+          <MoviesByGenre genreId={80} pageName={'クライムサスペンス'} />
+        </TabPanel>
+        <TabPanel value={value} index={10}>
+          <MoviesByGenre genreId={878} pageName={'SF'} />
+        </TabPanel>
+        <TabPanel value={value} index={11}>
+          <MoviesByGenre genreId={16} pageName={'アニメ'} />
+        </TabPanel>
+        <TabPanel value={value} index={12}>
+          <MoviesByGenre genreId={10752} pageName={'戦争'} />
+        </TabPanel>
+        <TabPanel value={value} index={13}>
+          <MoviesByGenre genreId={10402} pageName={'ミュージック'} />
         </TabPanel>
       </div>
     </Wrapper>

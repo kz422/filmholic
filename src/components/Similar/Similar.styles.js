@@ -28,6 +28,11 @@ export const Content = styled.div`
     max-width: 200px;
     padding: 12px;
     border-radius: 20px;
+    transition: all .3s;
+
+    :hover {
+    transform: scale(1.05);
+  }
   }
 
   h3 {

@@ -20,12 +20,14 @@ const Thumb = ({ image, movieId, clickable, title, rating, release }) => {
         >
         {clickable ? (
           <Link to={`/movie/${movieId}`}>
-            <Image src={image} alt='movie-thumb' />
+            <div>
+              <Image src={image} alt='movie-thumb' />
+            </div>
           </Link>
         ) : (
           <Image src={image} alt='movie-thumb' />
         )}
-        </motion.div>
+      </motion.div>
     </div>
   )
 }

@@ -1,5 +1,6 @@
-import firebase from 'firebase/app';
-import 'firebase/analytics';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth'
+import 'firebase/compat/firestore'
 
 const config = {
   apiKey: "AIzaSyDEqNo6rmoV_Jcca4cl_q1U3m0w-e63k1o",
@@ -11,5 +12,8 @@ const config = {
 };
 
 firebase.initializeApp(config);
+firebase.firestore().settings({ experimentalForceLongPolling: true });
 
-export default firebase;
+export const auth = firebase.auth()
+export const provider = new firebase.auth.GoogleAuthProvider()
+export const db = firebase.firestore()

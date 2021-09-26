@@ -4,7 +4,9 @@ import { POSTER_SIZE, IMAGE_BASE_URL } from '../../config';
 
 import { useHomeFetch } from '../../Hooks/useHomeFetch'
 
-import NoImage from '../../images/no_image.jpg';
+import InfiniteScroll from 'react-infinite-scroller';
+
+import NoImage from '../../images/no_image.png';
 import Grid from '../Grid';
 import Thumb from '../Thumb';
 import Spinner from '../Spinner';
@@ -41,7 +43,7 @@ export const TopTab = () => {
         </Grid>
         {loading && <Spinner />}
         {state.page < state.total_pages && !loading && (
-          <Button text='Load More' callback={() => setIsLoadingMore(true)} />
+          <Button text='さらに読み込む' callback={() => setIsLoadingMore(true)} />
         )}
     </div>
   )

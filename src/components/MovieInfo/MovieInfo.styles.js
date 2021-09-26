@@ -34,9 +34,48 @@ export const Content = styled.div`
 
   border-radius: 20px;
 
+  .thumb {
+    border-radius: 20px;
+    width: 100%;
+    max-width: 480px;
+    transition: all .3s;
+    object-fit: cover;
+    /* border-radius: 20px 20px 0 0; */
+    border-radius: 20px;
+    animation: animatedThumb .5s;
+    box-shadow: 0 2px 8px gray;
+    /* height: 100%; */
+    margin: 0;
+  }
+
+  .img-div {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    /* text-align: center; */
+  }
+
   @media screen and (max-width: 768px){
     display: block;
     max-height: none;
+
+    .img-div {
+      width: 100%;
+      text-align: center;
+      max-width: 350px;
+      margin-top: 30px;
+    }
+  }
+  @media screen and (max-width: 500px){
+    display: block;
+    max-height: none;
+
+    .img-div {
+      width: 100%;
+      text-align: center;
+      max-width: 270px;
+      margin-top: 30px;
+    }
   }
 `;
 
@@ -58,6 +97,10 @@ export const Text = styled.div`
   .read-more-button {
     color: blue;
     cursor: pointer;
+  }
+
+  .overview {
+    font-size: var(--fontSmall);
   }
 
   .score {
@@ -82,6 +125,7 @@ export const Text = styled.div`
   .list-button button{
     padding: 8px;
     font-size: .7rem;
+    margin-right: 3px;
   }
 
   .buttons a {
@@ -97,6 +141,9 @@ export const Text = styled.div`
 
     p{
       margin: 0;
+    }
+    div {
+      margin: 0 auto;
     }
   }
 

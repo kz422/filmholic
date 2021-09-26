@@ -1,15 +1,23 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  padding: 0 20px;
-  background-color: rgba(0,0, 0, 0);
-  position: sticky;
+  .nav {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    transition-timing-function: ease-in;
+    transition: all .5s;
+  }
+  .nav__black {
+    background-color: rgba(0,0,0, .85);
+  }
 `;
 
 export const Bar = styled.div`
   color: var(--white);
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   line-height: 100%;
   margin-top: 10px;
@@ -19,9 +27,14 @@ export const Bar = styled.div`
     height: 70px;
   }
 
-  h1 {
-    color: var(--white);
+  .icon {
+    margin-top: 8px;
+  }
+
+  h2 {
+    color: #ff6700;
     font-style: italic;
+    font-weight: bolder;
   }
 `
 

@@ -2,23 +2,43 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 import { Wrapper, Content, Text } from './HeroImage.styles'
+import { Button } from '@material-ui/core';
 
-import { GiLaurelCrown } from 'react-icons/gi'
+const HeroImage = ({ image, title, text, num, id }) => {
 
-const HeroImage = ({ image, title, text, num }) => (
-  <Wrapper image={image}>
-    <Content>
-      <Text>
-        <div  className="ribbon" style={{display:'flex', alignItems: 'center'}}>
-          {/* <GiLaurelCrown className="icons" size="2rem" /> */}
-          <h2> Hit Movie #{num}</h2>
-        </div>
-        <h1>{title}</h1>
-        <p>{text}</p>
-      </Text>
-    </Content>
-  </Wrapper>
-);
+  const modifyText = (text) => {
+    if(text.length < 200) {
+      return text.split('。')
+    } else {
+      return text
+    }
+  }
+  
+  return (
+    <Wrapper image={image}>
+      <Content className="wrap">
+        <Text className="text">
+          <h3> HotMovie #{num}</h3>
+          <h1>{title}</h1>
+          <div className="overview">
+            <p>{
+            text.length > 200 ? text.split('。', 1).join('。') : text
+            }</p> 
+          </div>
+        <Button 
+          variant="contained"
+          color="primary"
+          href={`/movie/${id}`}
+          className="button"
+          size="small"
+        >
+          詳しく
+        </Button>
+        </Text>
+      </Content>
+    </Wrapper>
+  )
+}
 
 HeroImage.propTypes = {
   image: PropTypes.string,

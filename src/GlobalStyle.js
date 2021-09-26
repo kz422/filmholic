@@ -1,21 +1,25 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;400;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;700&display=swap');
+
   :root{
     --maxWidth: 1280px;
     --white: #fff;
     --lightGrey: #eee;
-    --medGery: #353535;
+    --medGrey: #353535;
     --darkGrey: #1c1c1c;
     --fontSuperBig: 2.5rem;
     --fontBig: 1.5rem;
     --fontMed: 1.2rem;
     --fontSmall: 1rem;
+    --fontXSmall: .8rem;
   }
 
   *{
     box-sizing: border-box;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Oswald', 'M PLUS 1p', sans-serif;
   }
 
   a {
@@ -41,6 +45,11 @@ export const GlobalStyle = createGlobalStyle`
   p{
     font-size: 1rem;
     color: var(--white);
+  }
+
+  .cast-title {
+    color: var(--white);
+    margin-left: 16px;
   }
 
   .footer-container {
