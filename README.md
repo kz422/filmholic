@@ -1,4 +1,4 @@
-![ロゴ](https://firebasestorage.googleapis.com/v0/b/tlutter-e0f5d.appspot.com/o/logo.png?alt=media&token=e88b6f35-ca25-4ab0-92b0-598ac64b17e4)
+![ロゴ](https://firebasestorage.googleapis.com/v0/b/tlutter-e0f5d.appspot.com/o/logo.png?alt=media&token=db88245a-48cb-4b08-9610-bc8c6346455a)
 
 ## Description
 
@@ -6,7 +6,7 @@ MovieHackは、好きな映画のコレクションの作成や、シェア、�
 
 ## Demo
 
-![デモ](https://firebasestorage.googleapis.com/v0/b/tlutter-e0f5d.appspot.com/o/ezgif.com-video-to-gif.gif?alt=media&token=062949b3-d004-49c1-8023-f306bdc5ab39)
+![デモ](https://firebasestorage.googleapis.com/v0/b/tlutter-e0f5d.appspot.com/o/ezgif-7-4f90f00cc24b.gif?alt=media&token=77feae1c-7e54-4b9b-a39e-b022145ea819)
 
 ## Feature
 
@@ -14,6 +14,7 @@ MovieHackは、好きな映画のコレクションの作成や、シェア、�
 ↪︎ソーシャルアカウントログイン（Google） *ログインしなくともサービスの利用は可能です
 - ジャンルごとや、人気映画など映画情報のブラウズ
 - 映画や俳優のお気に入り登録(評価や年順でのソート、キーワードによる絞り込み可)
+- AmazonPrimeVideoやNetflixなどで利用可能な場合は表示
 - プロフィール画面の背景画像を映画のポスターで設定
 - ユーザー同士のフォロー機能
 - フォローされた場合などには、バッジにてリアルタイム通知
@@ -21,6 +22,7 @@ MovieHackは、好きな映画のコレクションの作成や、シェア、�
 - LogIn  
 ↪︎LogIn with social account（Google）. *You can use this service without login.
 - Browsing movies by genres, popularity.
+- You can see providers, the movie(s) available on flatrate provider(AmazonPrime, Netflix ...etc)
 - Collection favorite actors, movies (sortable, searchable).
 - Set poster as profile screen backdrop.
 - Follow users.
