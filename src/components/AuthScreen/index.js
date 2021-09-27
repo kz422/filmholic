@@ -22,7 +22,6 @@ import { Wrapper } from './AuthScreen.styles'
 import { IconButton } from '@material-ui/core';
 
 const AuthScreen = ({ buttonText }) => {
-  const location = useLocation()
 
   const navigate = useNavigate()
   const [error, setError] = useState('')
@@ -79,9 +78,9 @@ const AuthScreen = ({ buttonText }) => {
           <Button variant="contained" className="signin-button" onClick={login} startIcon={<FcGoogle />}>Googleでサインイン</Button>
         </DialogContent>
         <DialogActions>
-          <IconButton onClick={handleClose} color="primary">
-            <AiOutlineClose />
-          </IconButton>
+          <Button onClick={handleClose} color="primary">
+            キャンセル
+          </Button>
         </DialogActions>
       </Wrapper>
       </Dialog>

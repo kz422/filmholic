@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router';
 import PropTypes from 'prop-types';
 import { db } from '../../Firebase';
 
-import { Button } from '@material-ui/core';
+import { Button, Tooltip } from '@material-ui/core';
 
 import { useAuthContext } from "../../AuthContext"
 
 import Spinner from '../Spinner';
 import Grid from '../Grid';
 import ActorThumb from './ActorThumb';
+
+import { RiSearchEyeLine } from 'react-icons/ri'
 
 import { IMAGE_BASE_URL, POSTER_SIZE, PROFILE_SIZE } from '../../config';
 import NoImage from '../../images/no_image.png'
@@ -111,13 +112,21 @@ const ActorInfo = () => {
         <motion.div initial={{x: -200, opacity: 0}} animate={{ x: 0, opacity: 1 }} transition={{duration: 1}}>
           <p>{info.birthday}生まれ</p>
           <div className="list-button">
-          <Button 
-            variant="contained" 
-            onClick={isFavAct ? removeFavList : addFavActList }
-            color={isFavAct ? "secondary" : "default"}
-            >
-              スキ
-          </Button>
+          <Tooltip title="サインインが必要です" 
+                  placement="top"
+                  disableHoverListener={user}
+          >
+            <span>
+              <Button 
+                variant="contained" 
+                onClick={isFavAct ? removeFavList : addFavActList }
+                color={isFavAct ? "secondary" : "default"}
+                disabled={!user}
+                >
+                  スキ
+              </Button>
+            </span>
+          </Tooltip>
           </div>
           <h3>略歴</h3>
           <ReadMoreToggler topGradient="gray" bottomGradient="white">{info?.biography}</ReadMoreToggler>
@@ -129,14 +138,19 @@ const ActorInfo = () => {
               {/* <div className="score">{movie.vote_average}</div> */}
             </div>
           </div>
+          <a href={`https://www.google.com/search?q=${info?.name}`} target="_blank" rel="noreferrer" style={{ color: "white" }}>
+                <div style={{ display: "flex", alignItems: "center", marginTop: "28px" }}>
+                  <RiSearchEyeLine size="21px"/>
+                  <p style={{ margin: 0, paddingLeft: "5px" }}>WEBで検索</p>
+                </div>
+              </a>
         </motion.div>
       </Text>
     </Content>
   </Wrapper>
-  {movieList.length}
   <div className="box" style={{ minHeight: '40vh', marginBottom: '20px' }}>
       <Grid header={'出演作品'}>
-        {movieList.sort().map((movie, index) => (
+        {movieList.map((movie, index) => (
           <ActorThumb 
             key={index}
             clickable

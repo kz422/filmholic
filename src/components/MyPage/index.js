@@ -50,11 +50,11 @@ const MyPage = () => {
           <div className="container">
             <div className="user-info">
               <img src={`${user.photoURL}`} alt="userphoto" />
-              <p>{user.displayName}</p>
+              <p style={{ margin: '0' }}>{user.displayName}</p>
             </div>
             <div className="buttons">
-              <FollowPage buttonText={"フォロワー"} />
-              <FollowPage buttonText={"フォロー中"} />
+              <FollowPage buttonText={"フォロワー"} isFollow={true} />
+              <FollowPage buttonText={"フォロー中"} isFollow={false} />
             </div>
             <div>
               <Button 

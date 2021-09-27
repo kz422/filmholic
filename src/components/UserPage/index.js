@@ -1,12 +1,15 @@
+import { auth } from "../../Firebase"
 import { Navigate, useParams } from "react-router-dom"
+import { useNavigate } from 'react-router';
 import { useState, useEffect } from 'react'
 
 import { motion } from "framer-motion";
 
+import { AiOutlineLogout } from 'react-icons/ai'
 import { RiUserFollowLine, RiUserLine } from 'react-icons/ri'
 
 import { useAuthContext } from "../../AuthContext"
-import { Wrapper } from "./MyPage.styles"
+import { Wrapper } from "./UserPage.styles"
 import UserPageTab from "../UserPageTab";
 import { Button } from "@material-ui/core";
 
@@ -14,6 +17,7 @@ import { db } from '../../Firebase'
 
 
 const UserPage = () => {
+  const navigate = useNavigate()
   const { userId } = useParams()
 
   const [wallpaper, setWallpaper] = useState()
@@ -25,7 +29,9 @@ const UserPage = () => {
   const getUserInfo = async () => {
     const colRef = db.collection('users').doc(`${userId}`).collection('userInfo').doc('wallpaper')
     colRef.onSnapshot((querySnapshot) => {
-      setWallpaper(querySnapshot.data()?.backdrop)
+      if(querySnapshot.data()?.backdrop) {
+        setWallpaper(querySnapshot.data()?.backdrop)
+      }
     })
   }
   const getUser = async () => {

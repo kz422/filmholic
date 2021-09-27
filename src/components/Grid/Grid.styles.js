@@ -15,6 +15,24 @@ export const Wrapper = styled.div`
       font-size: var(--fontBig);
     }
   }
+  input {
+    border: 0;
+    border-radius: 5px;
+    background-color: gray;
+    height: 40px;
+    color: var(--white);
+    font-size: 16px;
+
+    :focus{
+      outline: none;
+    }
+
+    ::placeholder{
+      color: var(--white);
+      /* font-size: 14px; */
+      padding: 5px;
+    }
+  }
 `;
 
 export const Content = styled.div`

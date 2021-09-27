@@ -29,7 +29,7 @@ const SearchBar = ({ setSearchTerm }) => {
         <img src={searchIcon} alt='search-icon' />
         <input 
           type='text'
-          placeholder='Search Movie' 
+          placeholder='検索' 
           onChange={event => setState(event.currentTarget.value)}
           value={state}
         />

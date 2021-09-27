@@ -13,7 +13,6 @@ import NotFound from './components/NotFound';
 
 import { GlobalStyle } from './GlobalStyle'
 import UserPage from './components/UserPage';
-import SearchResult from './components/SearchResult';
 import MyPage from './components/MyPage';
 
 const App = () =>  (
@@ -26,7 +25,6 @@ const App = () =>  (
         <Route path='/person/:actorId' element={<ActorInfo />} />
         <Route path='/mypage' element={<MyPage />} />
         <Route path='/user/:userId' element={<UserPage />} />
-        {/* <Route path='/search' element={<SearchResult />} /> */}
         <Route path='/*' element={<NotFound />} />
       </Routes>
       <GlobalStyle />

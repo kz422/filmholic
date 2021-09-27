@@ -13,6 +13,8 @@ import Spinner from '../Spinner';
 
 import { AiOutlineSortAscending } from 'react-icons/ai'
 import { IoCloseCircleSharp } from 'react-icons/io5'
+import { RiArrowRightSFill } from 'react-icons/ri'
+import { HiSearch } from 'react-icons/hi'
 
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -25,6 +27,7 @@ import { Fab } from '@material-ui/core';
 
 import './MyListTabs.css'
 import { useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -52,11 +55,13 @@ export const MyListTabs = ({ colName, header }) => {
   const { userId } = useParams()
 
   const [list, setList] = useState([])
+  const [filteredList, setFilteredList] = useState([])
   const [loading, isLoading] = useState(true)
 
   const classes = useStyles();
   const [sort, setSort] = useState('title')
   const [open, setOpen] = useState(false)
+  const [isSearch, setIsSearch] = useState(false)
   const [sortView, setSortView] = useState(false)
 
   const { user } = useAuthContext()
@@ -79,6 +84,12 @@ export const MyListTabs = ({ colName, header }) => {
     : setSortView(true)
   }
 
+  const handleIsSearch = () => {
+    isSearch ?
+    setIsSearch(false)
+    : setIsSearch(true)
+  }
+
   const isDesc = () => {
     if(sort === 'voteAve' && 'popularity') {
       return 'desc'
@@ -96,6 +107,7 @@ export const MyListTabs = ({ colName, header }) => {
           movies.push(doc.data())
         })
         setList(movies)
+        setFilteredList(movies)
       })
     } else {
       const colRef = db.collection('users').doc(`${user?.uid}`).collection(`${colName}`).orderBy(`${sort}`, isDesc())
@@ -105,8 +117,8 @@ export const MyListTabs = ({ colName, header }) => {
           movies.push(doc.data())
         })
         setList(movies)
+        setFilteredList(movies)
       })
-
     }
   }
 
@@ -115,21 +127,61 @@ export const MyListTabs = ({ colName, header }) => {
     isLoading(false)
   }, [])
 
+  const handleSearch = (event) => {
+    let value = event.target.value
+    let result = []
+    result = list.filter((data) => {
+      return data.title.search(value) !== -1
+    })
+    setFilteredList(result)
+  }
+
+  const search = () => {
+    return (
+      <>
+        {isSearch ? 
+          <div>
+            <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
+              <div  style={{ display: 'flex', alignItems: 'center' }}>
+                <IconButton>
+                  <RiArrowRightSFill color="white" onClick={handleIsSearch} />
+                </IconButton>
+                <input 
+                  style={{ padding: '3px', height: '30px', width: '170px' }}
+                  onChange={(event) =>handleSearch(event)}
+                  placeholder="絞り込み"
+                />
+              </div>
+            </motion.div>
+          </div>
+          : <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
+              <IconButton><HiSearch color="white" onClick={handleIsSearch} /></IconButton>
+            </motion.div>
+        }
+      </>
+    )
+  }
+
   return (
     <div className='container'>
-      <Grid header={header} length={` - ${list.length}本`}>
-        {list.map(movie => (
-          <Thumb 
-            key={movie.id}
-            clickable
-            image={
-              movie.poster
-                ? IMAGE_BASE_URL + POSTER_SIZE + movie.poster 
-                : NoImage
-            }
-            movieId={movie.id}
-            title={movie?.title}
-          />
+      <Grid 
+        header={header} 
+        length={` - ${list.length}本`} 
+        input={search()}>
+        {filteredList.map(movie => (
+          <div>
+            <Thumb 
+              key={movie.id}
+              clickable
+              image={
+                movie.poster
+                  ? IMAGE_BASE_URL + POSTER_SIZE + movie.poster 
+                  : NoImage
+              }
+              movieId={movie.id}
+              title={movie?.title}
+            />
+          </div>
           // <div key={movie.id}>{movie.title}</div>
         ))}
       </Grid>

@@ -115,7 +115,7 @@ export default function ButtonAppBar() {
             fullScreen={fullScreen}
             TransitionComponent={Transition}
           >
-            <AppBar className={classes.appBar} color="default">
+            <AppBar className={classes.appBar} color="default" elevation>
           <Toolbar>
             <IconButton onClick={handleMenuOpen}>
               <AiOutlineClose color="white" size="21px" />

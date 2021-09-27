@@ -164,9 +164,6 @@ const MovieInfo = ({ movie }) => {
       setOpen(false)
     })
   }
-  function removeWallpaper() {
-    db.collection('users').doc(user?.uid).collection('userInfo').doc('wallpaper').delete()
-  }
 
   return (
     <Wrapper backdrop={movie.backdrop_path}>
@@ -238,7 +235,7 @@ const MovieInfo = ({ movie }) => {
                 <Dialog open={open} onClose={handleOpen} PaperProps={{ style: {background: '#1c1c1c', color: 'white'} }}>
                   <DialogTitle>確認</DialogTitle>
                   <DialogContent>
-                    <DialogContentText style={{color: 'white'}}>マイページの背景画像として設定しますか？</DialogContentText>
+                    <DialogContentText style={{color: 'white', fontSize: '12px'}}>マイページの背景画像として設定しますか？</DialogContentText>
                   </DialogContent>
                   <DialogActions>
                     <Button color="primary" onClick={addWallpaper}>OK</Button>
