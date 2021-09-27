@@ -28,6 +28,11 @@ MovieHackは、好きな映画のコレクションの作成や、シェア、�
 - Follow users.
 - Realtime notification when you followed by other users.
 
+## テスト使用
+- もしログインの上でご利用の場合、以下のアカウントもご自由にご利用ください
+mail: moviehack.app@gmail.com
+pw: admin.admin
+
 ## 作者
 
 [Kazuki Inoue](https://github.com/kz422)
