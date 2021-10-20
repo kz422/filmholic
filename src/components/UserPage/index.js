@@ -1,11 +1,11 @@
-import { auth } from "../../Firebase"
 import { Navigate, useParams } from "react-router-dom"
 import { useNavigate } from 'react-router';
 import { useState, useEffect } from 'react'
 
 import { motion } from "framer-motion";
 
-import { AiOutlineLogout } from 'react-icons/ai'
+import logoBd from '../../images/logo_bd.png'
+
 import { RiUserFollowLine, RiUserLine } from 'react-icons/ri'
 
 import { useAuthContext } from "../../AuthContext"
@@ -31,6 +31,8 @@ const UserPage = () => {
     colRef.onSnapshot((querySnapshot) => {
       if(querySnapshot.data()?.backdrop) {
         setWallpaper(querySnapshot.data()?.backdrop)
+      } else {
+        setWallpaper(logoBd)
       }
     })
   }

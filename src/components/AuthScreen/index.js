@@ -75,7 +75,7 @@ const AuthScreen = ({ buttonText }) => {
             サインインすることですべての機能を利用できます
           </DialogContentText>
           {error === errorMessageFromFB && <p>キャンセルされました</p>}
-          <Button variant="contained" className="signin-button" onClick={login} startIcon={<FcGoogle />}>Googleでサインイン</Button>
+          <Button variant="contained" className="signin-button" onClick={login} startIcon={<FcGoogle />} style={{ fontFamily: 'Arial', textTransform: 'none' }}>Googleでサインイン</Button>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">

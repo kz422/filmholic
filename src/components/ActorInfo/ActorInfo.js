@@ -10,7 +10,7 @@ import Spinner from '../Spinner';
 import Grid from '../Grid';
 import ActorThumb from './ActorThumb';
 
-import { RiSearchEyeLine } from 'react-icons/ri'
+import { RiSearchEyeLine, RiChatHeartLine } from 'react-icons/ri'
 
 import { IMAGE_BASE_URL, POSTER_SIZE, PROFILE_SIZE } from '../../config';
 import NoImage from '../../images/no_image.png'
@@ -122,6 +122,7 @@ const ActorInfo = () => {
                 onClick={isFavAct ? removeFavList : addFavActList }
                 color={isFavAct ? "secondary" : "default"}
                 disabled={!user}
+                startIcon={<RiChatHeartLine size="15px" />}
                 >
                   スキ
               </Button>
@@ -140,7 +141,7 @@ const ActorInfo = () => {
           </div>
           <a href={`https://www.google.com/search?q=${info?.name}`} target="_blank" rel="noreferrer" style={{ color: "white" }}>
                 <div style={{ display: "flex", alignItems: "center", marginTop: "28px" }}>
-                  <RiSearchEyeLine size="21px"/>
+                  <RiSearchEyeLine size="21px" />
                   <p style={{ margin: 0, paddingLeft: "5px" }}>WEBで検索</p>
                 </div>
               </a>
@@ -149,7 +150,7 @@ const ActorInfo = () => {
     </Content>
   </Wrapper>
   <div className="box" style={{ minHeight: '40vh', marginBottom: '20px' }}>
-      <Grid header={'出演作品'}>
+      <Grid header={'作品'}>
         {movieList.map((movie, index) => (
           <ActorThumb 
             key={index}

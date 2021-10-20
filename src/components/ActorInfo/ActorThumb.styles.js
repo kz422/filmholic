@@ -23,7 +23,7 @@ export const Image = styled.img`
   transition: all .3s;
   object-fit: cover;
   /* border-radius: 20px 20px 0 0; */
-  border-radius: 20px;
+  border-radius: 5px;
   animation: animatedThumb .5s;
   box-shadow: 0 2px 8px gray;
   /* height: 100%; */

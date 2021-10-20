@@ -168,8 +168,8 @@ export const MyListTabs = ({ colName, header }) => {
         header={header} 
         length={` - ${list.length}本`} 
         input={search()}>
-        {filteredList.map(movie => (
-          <div>
+        {filteredList.map((movie, i) => (
+          <div key={i}>
             <Thumb 
               key={movie.id}
               clickable
@@ -211,7 +211,7 @@ export const MyListTabs = ({ colName, header }) => {
               <MenuItem value={'release'}>公開日順</MenuItem>
               <MenuItem value={'voteAve'}>評価順</MenuItem>
             </Select>
-            <Button size="small" variant="contained" onClick={getData}>実行</Button>
+            <Button size="small" variant="contained" onClick={getData} color="primary">実行</Button>
           </FormControl>
         </div>
         : <Fab className={classes.fab} onClick={handleSortView}>

@@ -21,6 +21,11 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Oswald', 'M PLUS 1p', sans-serif;
   }
+  
+  * ::selection {
+    background-color: #ff6700;
+    color: var(--white);
+  }
 
   a {
     text-decoration: none;

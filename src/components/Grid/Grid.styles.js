@@ -38,7 +38,8 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  grid-gap: 1rem;
+  grid-gap: .9rem;
+  row-gap: 0.3rem;
 
   @media screen and (max-width: 768px){
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));

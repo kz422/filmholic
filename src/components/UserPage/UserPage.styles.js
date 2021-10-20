@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   text-align: center;
   background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), ${({ backdrop }) => 
       backdrop ? `url('${backdrop}')` : '#000' };
-  background-size: cover;
+  /* background-size: cover; */
   background-position: center;
   padding: 120px 10px;
 

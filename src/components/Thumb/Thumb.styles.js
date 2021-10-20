@@ -4,7 +4,7 @@ export const Card = styled.div`
 	max-width: 100%;
 	justify-content: center;
   background-color: gray;
-  border-radius: 20px;
+  border-radius: 10px;
   color: var(--white);
   height: 100%;
   overflow: hidden;
@@ -38,11 +38,15 @@ export const Image = styled.img`
   transition: all .3s;
   object-fit: cover;
   /* border-radius: 20px 20px 0 0; */
-  border-radius: 20px;
+  border-radius: 5px;
   animation: animatedThumb .5s;
-  box-shadow: 0 2px 8px gray;
+  box-shadow: 0 1px 2px gray;
   /* height: 100%; */
   margin: 0;
+
+  :hover{
+      transform: scale(1.05);
+    }
 
   .thumb {
     :hover{

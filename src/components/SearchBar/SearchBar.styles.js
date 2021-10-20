@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  height: 100px;
+  height: 80px;
   padding: 0 10px;
   max-width: 720px;
   margin: 0 auto;
@@ -19,11 +19,20 @@ export const Content = styled.div`
   border-radius: 40px;
   color: var(--white);
 
+  @media screen and (max-width: 768px) {
+    width: 80%;
+    height: 40px;
+  }
+
   img {
     position: absolute;
     left: 19px;
     top: 19px;
     width: 20px;
+
+    @media screen and (max-width: 768px){
+      top: 10px;
+    }
   }
   
   input{
@@ -31,12 +40,16 @@ export const Content = styled.div`
     position: absolute;
     left: 0;
     margin: 8px 0;
-    padding: 0 0 0 60px;
+    padding: 0 0 0 50px;
     border: 0;
     width: 95%;
     background-color: transparent;
     height: 40px;
     color: var(--white);
+
+    @media screen and (max-width: 768px) {
+      margin: 0;
+    }
 
     :focus{
       outline: none;
@@ -44,6 +57,6 @@ export const Content = styled.div`
 
   ::placeholder{
     color: var(--white);
-  }
+    }
   }
 `

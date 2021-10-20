@@ -11,6 +11,11 @@ export const Wrapper = styled.div`
     align-items: center;
     margin: 0 auto;
     cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .MuiButton-label {
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   .MuiDialogContent-root p{

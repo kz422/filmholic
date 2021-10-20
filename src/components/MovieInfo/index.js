@@ -7,10 +7,15 @@ import { Avatar, Button, ButtonGroup, Dialog, DialogActions, DialogContent, Dial
 import Tooltip from '@material-ui/core/Tooltip';
 import { Alert } from "@material-ui/lab"
 
+//icons
 import { GiStarsStack } from 'react-icons/gi'
 import { MdWallpaper } from 'react-icons/md'
 import { AiFillYoutube } from 'react-icons/ai'
 import { RiSearchEyeLine } from 'react-icons/ri'
+import { BsBookmarkCheck } from 'react-icons/bs'
+import { RiChatHeartLine } from 'react-icons/ri'
+import { ImEyePlus } from 'react-icons/im'
+import { BsPersonCheck } from 'react-icons/bs'
 
 import { IMAGE_BASE_URL, POSTER_SIZE, POSTER_SIZE_L } from '../../config';
 import NoImage from '../../images/no_image.png'
@@ -197,6 +202,7 @@ const MovieInfo = ({ movie }) => {
                       variant="contained" 
                       onClick={isWatched ? removeWatchedList : addWatchedList }
                       color={isWatched ? "secondary" : "default"}
+                      startIcon={<BsBookmarkCheck size="15px" />}
                       >
                         視聴済み
                     </Button>
@@ -204,6 +210,7 @@ const MovieInfo = ({ movie }) => {
                       variant="contained" 
                       onClick={isFav ? removeFavList : addFavList }
                       color={isFav ? "secondary" : "default"}
+                      startIcon={<RiChatHeartLine size="15px" />}
                       >
                         スキ
                     </Button>
@@ -211,6 +218,7 @@ const MovieInfo = ({ movie }) => {
                       variant="contained" 
                       onClick={isWish ? removeWishList : addWishList }
                       color={isWish ? "secondary" : "default"}
+                      startIcon={<ImEyePlus size="15px" />}
                       >
                         観たい
                     </Button>
@@ -309,16 +317,16 @@ const MovieInfo = ({ movie }) => {
         </Content>
       </motion.div>
       <div>
-      <Snackbar
-        open={openSnack}
-        autoHideDuration={4000}
-        onClose={handleOpenSnack}
-      >
-        <Alert onClose={handleOpenSnack} severity="success" sx={{ width: '100%' }}>
-          設定しました！
-        </Alert>
-      </Snackbar>
-    </div>
+        <Snackbar
+          open={openSnack}
+          autoHideDuration={4000}
+          onClose={handleOpenSnack}
+        >
+          <Alert onClose={handleOpenSnack} severity="success" sx={{ width: '100%' }}>
+            設定しました！
+          </Alert>
+        </Snackbar>
+      </div>
     </Wrapper>
   )
 }

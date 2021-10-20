@@ -1,4 +1,4 @@
-const API_KEY = "453487eb1f45dc7adae6655a7b5a63d3";
+const API_KEY = process.env.API_KEY
 
 export default {
   fetchPopular: {

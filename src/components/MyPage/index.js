@@ -3,15 +3,19 @@ import { Navigate } from "react-router-dom"
 import { useNavigate } from 'react-router';
 import { useState, useEffect } from 'react'
 
+import { Alert } from "@material-ui/lab"
 
 import { motion } from "framer-motion";
 
 import { AiOutlineLogout } from 'react-icons/ai'
+import { FaRegCopy } from 'react-icons/fa'
 
 import { useAuthContext } from "../../AuthContext"
 import { Wrapper } from "./MyPage.styles"
 import UserPageTab from "../UserPageTab";
-import { Button } from "@material-ui/core";
+import { Button, Snackbar } from "@material-ui/core";
+
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 import { db } from '../../Firebase'
 import FollowPage from "../FollowPage";
@@ -20,8 +24,14 @@ import FollowPage from "../FollowPage";
 const MyPage = () => {
 
   const [wallpaper, setWallpaper] = useState()
+  const [open, setOpen] = useState(false)
+  const [openSnack, setOpenSnack] = useState(false)
+  const [copied, setCopied] = useState(false)
   
   const { user } = useAuthContext()
+
+  const myUrl = `https://movie-hack.com/user/${user.uid}`
+
   const getUserInfo = async () => {
     const colRef = db.collection('users').doc(`${user?.uid}`).collection('userInfo').doc('wallpaper')
     colRef.onSnapshot((querySnapshot) => {
@@ -35,6 +45,14 @@ const MyPage = () => {
     auth.signOut()
     navigate("/")
   }
+
+  const handleOpenSnack = () => {
+    if(openSnack){
+      setOpenSnack(false)
+    } else {
+      setOpenSnack(true)
+    }
+  }
   
   useEffect(() => {
     getUserInfo()
@@ -45,6 +63,7 @@ const MyPage = () => {
     return <Navigate to="/" />
   } else {
     return (
+      <>
       <motion.div initial={{ opacity: '0', y: 200 }} animate={{ opacity: '1', y: 0 }} transition={{ duration: .7 }}>
         <Wrapper backdrop={wallpaper}>
           <div className="container">
@@ -59,18 +78,41 @@ const MyPage = () => {
             <div>
               <Button 
                 variant="outlined" 
-                color="primary" 
+                color="inherit" 
                 onClick={logout} 
                 startIcon={<AiOutlineLogout />}
                 size="small"
+                style={{ marginRight: '16px' }}
               >
-                LogOut
+                Log Out
               </Button>
+              <CopyToClipboard text={`${myUrl}`} onCopy={() => setOpenSnack(true)}>
+                <Button 
+                  variant="outlined" 
+                  color="inherit" 
+                  startIcon={<FaRegCopy />}
+                  size="small"
+                >
+                  URLをコピー
+                </Button>
+              </CopyToClipboard>
             </div>
           </div>
         </Wrapper>
         <UserPageTab />
       </motion.div>
+      <div>
+        <Snackbar
+          open={openSnack}
+          autoHideDuration={4000}
+          onClose={handleOpenSnack}
+        >
+          <Alert onClose={handleOpenSnack} severity="success" sx={{ width: '100%' }}>
+            コピーしました！
+          </Alert>
+        </Snackbar>
+      </div>
+      </>
     )
   }
 }

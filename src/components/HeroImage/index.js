@@ -5,14 +5,6 @@ import { Wrapper, Content, Text } from './HeroImage.styles'
 import { Button } from '@material-ui/core';
 
 const HeroImage = ({ image, title, text, num, id }) => {
-
-  const modifyText = (text) => {
-    if(text.length < 200) {
-      return text.split('。')
-    } else {
-      return text
-    }
-  }
   
   return (
     <Wrapper image={image}>
@@ -22,7 +14,7 @@ const HeroImage = ({ image, title, text, num, id }) => {
           <h1>{title}</h1>
           <div className="overview">
             <p>{
-            text.length > 200 ? text.split('。', 1).join('。') : text
+            text.length > 150 ? text.slice(0, 150) + "..." : text
             }</p> 
           </div>
         <Button 

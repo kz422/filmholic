@@ -85,6 +85,10 @@ export const Text = styled.div`
   overflow: hidden;
   white-space: pre-wrap;
 
+  .MuiButton-startIcon {
+    margin-right: 5px;
+  }
+
   .rating-directors {
     display: flex;
     justify-content: flex-start;

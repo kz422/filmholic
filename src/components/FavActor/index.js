@@ -208,7 +208,7 @@ export const FavActor = ({ colName, header }) => {
               <MenuItem value={'name'}>名前順</MenuItem>
               <MenuItem value={'bd'}>年齢順</MenuItem>
             </Select>
-            <Button size="small" variant="contained" onClick={getData}>実行</Button>
+            <Button size="small" variant="contained" onClick={getData} color="primary">実行</Button>
           </FormControl>
         </div>
         : <Fab className={classes.fab} onClick={handleSortView}>

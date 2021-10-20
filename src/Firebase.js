@@ -3,12 +3,12 @@ import 'firebase/compat/auth'
 import 'firebase/compat/firestore'
 
 const config = {
-  apiKey: "AIzaSyDEqNo6rmoV_Jcca4cl_q1U3m0w-e63k1o",
-  authDomain: "tlutter-e0f5d.firebaseapp.com",
-  projectId: "tlutter-e0f5d",
-  storageBucket: "tlutter-e0f5d.appspot.com",
-  messagingSenderId: "987599814237",
-  appId: "1:987599814237:web:3389d426a08a94e9b797b4"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECTID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSEGINGSENDERID,
+  appId: process.env.REACT_APP_FIREBASE_APPID
 };
 
 firebase.initializeApp(config);

@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   background-image: url(${({ image }) => image});
   background-size: cover;
   background-position: center;
-  height: 800px;
+  height: 80vh;
   position: relative;
   animation: alternateHeroImage 1s;
 

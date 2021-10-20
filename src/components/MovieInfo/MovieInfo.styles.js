@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
   animation: animationMovieInfo 1s;
   white-space: pre-wrap;
 
+  @media screen and (max-width: 768px) {
+    padding: 80px 5px;
+  }
+
   @keyframes animationMovieInfo{
     from {
       opacity: 0;
@@ -85,6 +89,10 @@ export const Text = styled.div`
   color: var(--white);
   overflow: hidden;
   white-space: pre-wrap;
+
+  .MuiButton-startIcon {
+    margin-right: 5px;
+  }
 
   .rating-circle {
     width: 60px;

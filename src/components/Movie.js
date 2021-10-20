@@ -13,6 +13,7 @@ import MovieInfoBar from './MovieInfoBar';
 import Actor from './Actor';
 import { Similar } from './Similar';
 import { Link } from 'react-router-dom';
+import Comments from './Comments';
 
 const Movie = () => {
   const { movieId } = useParams();
@@ -30,7 +31,7 @@ const Movie = () => {
         time={movie.runtime}
         budget={movie.budget}
         revenue={movie.revenue}
-        />
+      />
       <h2 className="cast-title">キャスト</h2>
       <div style={{display:'flex', overflow:'scroll'}}>
         {movie.actors.map((actor, i) => (
@@ -50,6 +51,7 @@ const Movie = () => {
         ))}
       </div>
       <Similar movie={movie} />
+      <Comments />
     </>
   )
 }

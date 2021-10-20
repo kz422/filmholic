@@ -7,7 +7,13 @@ export const Wrapper = styled.div`
     position: absolute;
     bottom: auto;
     /* min-height: 100px; */
-    z-index: -10
+    z-index: -10;
+
+    .disabled {
+      pointer-events: none;
+      text-decoration: line-through;
+      color: var(--lightGrey);
+    }
   }
 
   @media screen and (max-width: 768px){

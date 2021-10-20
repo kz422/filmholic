@@ -6,9 +6,16 @@ import { Wrapper, Image } from './Actor.styles';
 const Actor = ({ name, character, imageUrl }) => (
   <Wrapper>
     <Image src={imageUrl} alt='actor-thumb' />
-    <p className="actor-name">{name}</p>
+    <p className="actor-name">{name.length > 12 ? 
+        name.slice(0 , 11) + "..."
+        : name
+      }
+    </p>
     {character ? 
-      <p>{character} 役</p>
+      <p>{character.length > 13 ? 
+        character.slice(0 , 12) + "..."
+        : character
+      } 役</p>
       : null
     }
   </Wrapper>
