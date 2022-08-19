@@ -4,9 +4,9 @@
 
 MovieHackは、好きな映画のコレクションの作成や、シェア、ユーザーのフォローなどができる映画に特化したサービスです
 
-## Demo
+## アクセス
 
-![デモ](https://firebasestorage.googleapis.com/v0/b/tlutter-e0f5d.appspot.com/o/ezgif-7-4f90f00cc24b.gif?alt=media&token=77feae1c-7e54-4b9b-a39e-b022145ea819)
+[MovieHack](https://movie-hack.com)
 
 ## Feature
 
